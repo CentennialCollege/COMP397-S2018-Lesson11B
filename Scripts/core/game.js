@@ -8,13 +8,28 @@
     var CurrentScene;
     var CurrentState;
     var ScoreBoard;
+    var TextureAtlas;
+    var textureData = {
+        "images": [],
+        "framerate": 60,
+        "frames": [
+            [1, 1, 226, 178, 0, 0, 0],
+            [1, 181, 62, 63, 0, 0, 0],
+            [65, 181, 65, 65, 0, 0, 0],
+            [1, 248, 150, 50, 0, 0, 0],
+            [1, 300, 150, 50, 0, 0, 0]
+        ],
+        "animations": {
+            "cloud": { "frames": [0] },
+            "island": { "frames": [1] },
+            "plane": { "frames": [2] },
+            "RestartButton": { "frames": [3] },
+            "StartButton": { "frames": [4] }
+        }
+    };
     var Manifest = [
-        { id: "StartButton", src: "/Assets/images/StartButton.png" },
-        { id: "RestartButton", src: "/Assets/images/RestartButton.png" },
-        { id: "plane", src: "/Assets/images/plane.png" },
+        { id: "textureAtlas", src: "/Assets/sprites/textureAtlas.png" },
         { id: "ocean", src: "/Assets/images/ocean.gif" },
-        { id: "island", src: "/Assets/images/island.png" },
-        { id: "cloud", src: "/Assets/images/cloud.png" },
         { id: "yay", src: "/Assets/audio/yay.ogg" },
         { id: "thunder", src: "/Assets/audio/thunder.ogg" },
         { id: "engine", src: "/Assets/audio/engine.ogg" }
@@ -39,6 +54,9 @@
         managers.Game.CurrentState = CurrentState;
         ScoreBoard = new managers.ScoreBoard;
         managers.Game.ScoreBoard = ScoreBoard;
+        textureData.images = [AssetManager.getResult("textureAtlas")];
+        TextureAtlas = new createjs.SpriteSheet(textureData);
+        managers.Game.TextureAtlas = TextureAtlas;
         // This is where all the magic happens
         Main();
     }
