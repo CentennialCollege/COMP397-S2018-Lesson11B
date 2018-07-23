@@ -9,6 +9,7 @@
     var CurrentState;
     var ScoreBoard;
     var TextureAtlas;
+    var stats;
     var textureData = {
         "images": [],
         "framerate": 60,
@@ -16,15 +17,20 @@
             [1, 1, 226, 178, 0, 0, 0],
             [1, 181, 62, 63, 0, 0, 0],
             [65, 181, 65, 65, 0, 0, 0],
-            [1, 248, 150, 50, 0, 0, 0],
-            [1, 300, 150, 50, 0, 0, 0]
+            [132, 181, 65, 65, 0, 0, 0],
+            [1, 248, 65, 65, 0, 0, 0],
+            [68, 248, 150, 50, 0, 0, 0],
+            [1, 315, 150, 50, 0, 0, 0]
         ],
         "animations": {
             "cloud": { "frames": [0] },
             "island": { "frames": [1] },
-            "plane": { "frames": [2] },
-            "RestartButton": { "frames": [3] },
-            "StartButton": { "frames": [4] }
+            "plane": {
+                "frames": [2, 3, 4],
+                "speed": 0.2
+            },
+            "RestartButton": { "frames": [5] },
+            "StartButton": { "frames": [6] }
         }
     };
     var Manifest = [
@@ -34,6 +40,10 @@
         { id: "thunder", src: "/Assets/audio/thunder.ogg" },
         { id: "engine", src: "/Assets/audio/engine.ogg" }
     ];
+    function SetupStats() {
+        stats.showPanel(0);
+        document.body.appendChild(stats.dom);
+    }
     function Init() {
         console.log("%c Assets Loading...", "font-weight:bold; font-size:20px; color: green;");
         AssetManager = new createjs.LoadQueue();
@@ -57,16 +67,20 @@
         textureData.images = [AssetManager.getResult("textureAtlas")];
         TextureAtlas = new createjs.SpriteSheet(textureData);
         managers.Game.TextureAtlas = TextureAtlas;
+        stats = new Stats();
+        SetupStats();
         // This is where all the magic happens
         Main();
     }
     function Update() {
+        stats.begin();
         if (CurrentState != managers.Game.CurrentState) {
             CurrentState = managers.Game.CurrentState;
             Main();
         }
         CurrentScene.Update();
         stage.update();
+        stats.end();
     }
     function Main() {
         console.log("%c Switching Scenes...", "font-style:italic; font-size:16px; color:blue;");

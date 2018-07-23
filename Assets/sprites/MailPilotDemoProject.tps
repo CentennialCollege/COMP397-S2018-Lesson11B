@@ -221,7 +221,9 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../images/plane.png</key>
+            <key type="filename">../images/plane1.png</key>
+            <key type="filename">../images/plane2.png</key>
+            <key type="filename">../images/plane3.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -237,11 +239,13 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>../images/plane.png</filename>
             <filename>../images/island.png</filename>
             <filename>../images/cloud.png</filename>
             <filename>../images/StartButton.png</filename>
             <filename>../images/RestartButton.png</filename>
+            <filename>../images/plane1.png</filename>
+            <filename>../images/plane2.png</filename>
+            <filename>../images/plane3.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
