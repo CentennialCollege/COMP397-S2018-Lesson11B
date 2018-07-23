@@ -63,6 +63,7 @@ module scenes {
         }
 
         public Destroy():void {
+            this.engineSound.stop();
             this.removeAllChildren();
         }
 
@@ -82,6 +83,9 @@ module scenes {
             for (const cloud of this._clouds) {
                 this.addChild(cloud);
             }
+
+            this.addChild(managers.Game.ScoreBoard.LivesLabel);
+            this.addChild(managers.Game.ScoreBoard.ScoreLabel);
         }
     }
 }

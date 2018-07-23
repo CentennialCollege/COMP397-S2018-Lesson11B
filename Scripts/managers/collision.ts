@@ -14,11 +14,15 @@ namespace managers {
                 case "island":
                 let yaySound = createjs.Sound.play("yay");
                 yaySound.volume = 0.2;
+                managers.Game.ScoreBoard.Score += 100;
                 break;
 
                 case "cloud":
                 let thunderSound = createjs.Sound.play("thunder");
                 thunderSound.volume = 0.2;
+                managers.Game.ScoreBoard.Lives -= 1;
+
+                
                 break;
             }
 

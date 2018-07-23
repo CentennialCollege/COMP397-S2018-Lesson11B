@@ -13,10 +13,12 @@ var managers;
                         case "island":
                             var yaySound = createjs.Sound.play("yay");
                             yaySound.volume = 0.2;
+                            managers.Game.ScoreBoard.Score += 100;
                             break;
                         case "cloud":
                             var thunderSound = createjs.Sound.play("thunder");
                             thunderSound.volume = 0.2;
+                            managers.Game.ScoreBoard.Lives -= 1;
                             break;
                     }
                 }

@@ -10,8 +10,7 @@
     var ScoreBoard;
     var Manifest = [
         { id: "StartButton", src: "/Assets/images/StartButton.png" },
-        { id: "NextButton", src: "/Assets/images/NextButton.png" },
-        { id: "BackButton", src: "/Assets/images/BackButton.png" },
+        { id: "RestartButton", src: "/Assets/images/RestartButton.png" },
         { id: "plane", src: "/Assets/images/plane.png" },
         { id: "ocean", src: "/Assets/images/ocean.gif" },
         { id: "island", src: "/Assets/images/island.png" },
